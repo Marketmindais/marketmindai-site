@@ -1,48 +1,112 @@
 ---
 import Base from '../layouts/Base.astro';
+
+const rawPosts = import.meta.glob('./blog/*.md', { eager: true });
+const recentPosts = Object.values(rawPosts as any)
+  .sort((a: any, b: any) => new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime())
+  .slice(0, 3) as any[];
 ---
 <Base
-  title="AI-Powered Marketing Intelligence"
+  title="AI Marketing Intelligence"
   description="MarketMindAI gives marketers real-time AI insights, keyword research, content briefs, and competitor analysis. Start free."
 >
-  <section class="max-w-4xl mx-auto px-6 py-20 text-center">
-    <p class="text-indigo-600 font-semibold text-sm uppercase tracking-widest mb-4">AI Marketing Intelligence</p>
-    <h1 class="text-5xl font-extrabold leading-tight mb-6">Turn Data Into Revenue<br/>With AI Marketing Tools</h1>
-    <p class="text-xl text-gray-500 mb-10 max-w-2xl mx-auto">
-      MarketMindAI automates keyword research, generates SEO-optimised content briefs, and surfaces competitor gaps — so you can outrank without the guesswork.
-    </p>
-    <div class="flex gap-4 justify-center flex-wrap">
-      <a href="/pricing" class="bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition">Start Free Trial</a>
-      <a href="/tools" class="border border-gray-300 px-8 py-3 rounded-lg font-semibold hover:border-indigo-400 transition">See Tools</a>
-    </div>
-  </section>
 
-  <section class="bg-gray-50 py-20">
-    <div class="max-w-5xl mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center mb-14">Everything You Need to Win Search</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-white p-6 rounded-xl shadow-sm border">
-          <div class="text-indigo-600 text-2xl mb-3">&#128270;</div>
-          <h3 class="font-bold text-lg mb-2">Keyword Intelligence</h3>
-          <p class="text-gray-500 text-sm">Discover high-intent keywords your competitors are missing. AI clusters topics for maximum topical authority.</p>
-        </div>
-        <div class="bg-white p-6 rounded-xl shadow-sm border">
-          <div class="text-indigo-600 text-2xl mb-3">&#9997;</div>
-          <h3 class="font-bold text-lg mb-2">Content Briefs</h3>
-          <p class="text-gray-500 text-sm">Generate SEO-ready briefs in seconds. Includes headings, word count, internal links, and NLP entities.</p>
-        </div>
-        <div class="bg-white p-6 rounded-xl shadow-sm border">
-          <div class="text-indigo-600 text-2xl mb-3">&#128202;</div>
-          <h3 class="font-bold text-lg mb-2">Competitor Gap Analysis</h3>
-          <p class="text-gray-500 text-sm">See exactly where rivals rank and you don't. Prioritise the pages with the highest ROI potential.</p>
-        </div>
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-indigo-50 via-white to-violet-50 pt-20 pb-24">
+    <!-- Decorative blobs -->
+    <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-indigo-100 opacity-40 blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-16 -left-16 w-72 h-72 rounded-full bg-violet-100 opacity-40 blur-3xl pointer-events-none"></div>
+
+    <div class="relative max-w-4xl mx-auto px-6 text-center">
+      <div class="inline-flex items-center gap-2 bg-indigo-100 text-indigo-700 text-xs font-semibold px-3 py-1.5 rounded-full mb-6">
+        <span class="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-pulse"></span>
+        AI-Powered Marketing Intelligence
+      </div>
+      <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
+        Turn Data Into Revenue<br/>
+        <span class="text-indigo-600">With AI Marketing</span>
+      </h1>
+      <p class="text-xl text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed">
+        Automate keyword research, generate SEO content briefs, and surface competitor gaps —
+        so you outrank without the guesswork.
+      </p>
+      <div class="flex gap-4 justify-center flex-wrap">
+        <a href="/pricing" class="bg-indigo-600 text-white px-8 py-3.5 rounded-xl font-semibold hover:bg-indigo-700 transition-all shadow-lg hover:shadow-indigo-200 hover:shadow-xl">
+          Start Free Trial
+        </a>
+        <a href="/blog" class="border border-gray-300 bg-white px-8 py-3.5 rounded-xl font-semibold hover:border-indigo-400 hover:text-indigo-600 transition-all">
+          Read Reviews
+        </a>
       </div>
     </div>
   </section>
 
-  <section class="py-20 max-w-3xl mx-auto px-6 text-center">
-    <h2 class="text-3xl font-bold mb-6">From the Blog</h2>
-    <p class="text-gray-500 mb-8">Actionable guides on AI marketing, SEO, and growth.</p>
-    <a href="/blog" class="text-indigo-600 font-semibold hover:underline">Read all articles &rarr;</a>
+  <!-- Features -->
+  <section class="py-20 max-w-6xl mx-auto px-6">
+    <div class="text-center mb-14">
+      <h2 class="text-3xl font-extrabold text-gray-900 mb-3">Everything You Need to Win Search</h2>
+      <p class="text-gray-500 max-w-xl mx-auto">Built for marketers who want results, not dashboards.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      {[
+        { icon: "🔍", title: "Keyword Intelligence", desc: "Discover high-intent keywords your competitors are missing. AI clusters topics for maximum topical authority." },
+        { icon: "✏️", title: "Content Briefs", desc: "Generate SEO-ready briefs in seconds. Includes headings, word count, internal links, and NLP entities." },
+        { icon: "📊", title: "Competitor Gap Analysis", desc: "See exactly where rivals rank and you don't. Prioritise the pages with the highest ROI potential." },
+      ].map(f => (
+        <div class="bg-white border border-gray-100 rounded-2xl p-7 shadow-sm hover:shadow-md transition-shadow group">
+          <div class="text-3xl mb-4">{f.icon}</div>
+          <h3 class="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">{f.title}</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">{f.desc}</p>
+        </div>
+      ))}
+    </div>
   </section>
+
+  <!-- Recent blog posts -->
+  {recentPosts.length > 0 && (
+    <section class="bg-gray-50 border-t border-gray-100 py-20">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="flex items-end justify-between mb-10">
+          <div>
+            <h2 class="text-3xl font-extrabold text-gray-900 mb-2">Latest from the Blog</h2>
+            <p class="text-gray-500">Honest reviews of AI tools that actually work.</p>
+          </div>
+          <a href="/blog" class="text-sm font-semibold text-indigo-600 hover:underline hidden md:block">All articles &rarr;</a>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          {recentPosts.map((post: any) => (
+            <a href={post.url} class="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow overflow-hidden block">
+              <div class="bg-gradient-to-r from-indigo-500 to-violet-600 h-28 flex items-center justify-center px-5">
+                <span class="text-white font-semibold text-sm text-center opacity-90">
+                  {post.frontmatter.affiliate_name || post.frontmatter.tags?.[0] || "AI Tools"}
+                </span>
+              </div>
+              <div class="p-5">
+                <h3 class="font-bold text-gray-900 text-sm mb-2 group-hover:text-indigo-600 transition-colors line-clamp-2 leading-snug">
+                  {post.frontmatter.title}
+                </h3>
+                <p class="text-xs text-gray-400">{new Date(post.frontmatter.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+        <div class="text-center mt-8 md:hidden">
+          <a href="/blog" class="text-sm font-semibold text-indigo-600 hover:underline">All articles &rarr;</a>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- CTA strip -->
+  <section class="py-20 max-w-3xl mx-auto px-6 text-center">
+    <h2 class="text-3xl font-extrabold text-gray-900 mb-4">Start ranking faster with AI</h2>
+    <p class="text-gray-500 mb-8">Free trial. No credit card. No fluff.</p>
+    <a href="/pricing" class="inline-flex items-center gap-2 bg-indigo-600 text-white px-8 py-3.5 rounded-xl font-semibold hover:bg-indigo-700 transition-all shadow-lg hover:shadow-indigo-200 hover:shadow-xl">
+      Get Started Free
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+      </svg>
+    </a>
+  </section>
+
 </Base>
