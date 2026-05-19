@@ -1,0 +1,60 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base
+  title="Pricing"
+  description="MarketMindAI pricing — free forever plan and affordable Pro plans for serious marketers."
+>
+  <div class="max-w-4xl mx-auto px-6 py-16 text-center">
+    <h1 class="text-4xl font-extrabold mb-3">Simple, Transparent Pricing</h1>
+    <p class="text-gray-500 mb-14">Start free. Upgrade when you need more power.</p>
+
+    <div class="grid md:grid-cols-3 gap-6 text-left">
+      <!-- Free -->
+      <div class="border rounded-xl p-7">
+        <p class="text-sm font-semibold text-gray-400 uppercase tracking-widest mb-2">Free</p>
+        <div class="text-4xl font-extrabold mb-1">$0</div>
+        <p class="text-gray-500 text-sm mb-6">Forever free</p>
+        <ul class="space-y-2 text-sm text-gray-600 mb-8">
+          <li>&#10003; 10 keyword lookups / month</li>
+          <li>&#10003; 3 content briefs / month</li>
+          <li>&#10003; Meta tag analyzer</li>
+          <li>&#10003; Email support</li>
+        </ul>
+        <a href="#" class="block text-center border border-indigo-600 text-indigo-600 py-2 rounded-lg font-semibold hover:bg-indigo-50 transition">Get Started Free</a>
+      </div>
+
+      <!-- Pro -->
+      <div class="border-2 border-indigo-600 rounded-xl p-7 relative">
+        <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full">MOST POPULAR</span>
+        <p class="text-sm font-semibold text-indigo-600 uppercase tracking-widest mb-2">Pro</p>
+        <div class="text-4xl font-extrabold mb-1">$29</div>
+        <p class="text-gray-500 text-sm mb-6">per month</p>
+        <ul class="space-y-2 text-sm text-gray-600 mb-8">
+          <li>&#10003; Unlimited keyword research</li>
+          <li>&#10003; 50 content briefs / month</li>
+          <li>&#10003; Competitor gap analysis</li>
+          <li>&#10003; Keyword clustering</li>
+          <li>&#10003; Priority support</li>
+        </ul>
+        <a href="#" class="block text-center bg-indigo-600 text-white py-2 rounded-lg font-semibold hover:bg-indigo-700 transition">Start Pro Trial</a>
+      </div>
+
+      <!-- Agency -->
+      <div class="border rounded-xl p-7">
+        <p class="text-sm font-semibold text-gray-400 uppercase tracking-widest mb-2">Agency</p>
+        <div class="text-4xl font-extrabold mb-1">$99</div>
+        <p class="text-gray-500 text-sm mb-6">per month</p>
+        <ul class="space-y-2 text-sm text-gray-600 mb-8">
+          <li>&#10003; Everything in Pro</li>
+          <li>&#10003; Unlimited briefs</li>
+          <li>&#10003; 10 team seats</li>
+          <li>&#10003; White-label reports</li>
+          <li>&#10003; API access</li>
+          <li>&#10003; Dedicated account manager</li>
+        </ul>
+        <a href="#" class="block text-center border border-gray-300 py-2 rounded-lg font-semibold hover:border-indigo-400 transition">Contact Sales</a>
+      </div>
+    </div>
+  </div>
+</Base>

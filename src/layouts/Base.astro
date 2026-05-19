@@ -1,0 +1,34 @@
+---
+const { title, description, canonical } = Astro.props;
+const siteUrl = "https://marketmindai.com";
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title} | MarketMindAI</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical || siteUrl + Astro.url.pathname} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+</head>
+<body class="bg-white text-gray-900 font-sans">
+  <header class="border-b px-6 py-4 flex justify-between items-center">
+    <a href="/" class="text-xl font-bold text-indigo-600">MarketMindAI</a>
+    <nav class="space-x-6 text-sm">
+      <a href="/blog" class="hover:text-indigo-600">Blog</a>
+      <a href="/tools" class="hover:text-indigo-600">Tools</a>
+      <a href="/pricing" class="hover:text-indigo-600">Pricing</a>
+    </nav>
+  </header>
+  <main>
+    <slot />
+  </main>
+  <footer class="border-t px-6 py-8 text-sm text-gray-500 text-center">
+    <p>&copy; {new Date().getFullYear()} MarketMindAI. All rights reserved.</p>
+  </footer>
+</body>
+</html>
