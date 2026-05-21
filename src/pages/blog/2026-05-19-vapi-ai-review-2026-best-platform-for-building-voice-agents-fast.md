@@ -2,7 +2,7 @@
 title: "Vapi AI Review 2026: Best Platform for Building Voice Agents Fast"
 description: "Vapi AI review 2026: the best platform for building voice agents. Real costs, honest comparison to Retell and Twilio custom builds, step-by-step setup guide."
 date: 2026-05-19
-tags: "['AI Tools', 'Review', 'Voice AI']"
+tags: ["AI Tools", "Review", "Voice AI"]
 affiliate_url: "https://vapi.ai/?aff=amito3"
 affiliate_name: Vapi AI
 layout: ../../layouts/BlogPost.astro

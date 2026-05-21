@@ -11,6 +11,14 @@ function fmtDate(d: string | Date) {
   return new Date(d).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
 }
 
+// Safely normalise tags from frontmatter — handles arrays, strings, and mangled formats
+function normalizeTags(raw: any): string[] {
+  if (!raw) return [];
+  if (Array.isArray(raw)) return raw.map(String);
+  const s = String(raw).replace(/^\[|\]$/g, "").replace(/['"]/g, "");
+  return s.split(",").map(t => t.trim()).filter(Boolean);
+}
+
 // Map product names to gradient pairs for visual variety
 const gradients: Record<string, string> = {
   "Vapi AI":       "from-violet-500 to-indigo-600",
@@ -43,7 +51,7 @@ const gradients: Record<string, string> = {
         <!-- Featured post (first one) -->
         {sorted[0] && (() => {
           const post = sorted[0];
-          const product = post.frontmatter.affiliate_name || post.frontmatter.tags?.[0] || "default";
+          const product = post.frontmatter.affiliate_name || normalizeTags(post.frontmatter.tags)[0] || "default";
           const grad = gradients[product] ?? gradients["default"];
           return (
             <a href={post.url} class="group block mb-14">
@@ -58,7 +66,7 @@ const gradients: Record<string, string> = {
                 <div class="p-8 flex flex-col justify-between">
                   <div>
                     <div class="flex flex-wrap gap-2 mb-3">
-                      {(post.frontmatter.tags || []).map((t: string) => (
+                      {normalizeTags(post.frontmatter.tags).map((t: string) => (
                         <span class="text-xs bg-indigo-100 text-indigo-700 font-medium px-2.5 py-1 rounded-full">{t}</span>
                       ))}
                     </div>
@@ -81,7 +89,7 @@ const gradients: Record<string, string> = {
         {sorted.length > 1 && (
           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {sorted.slice(1).map(post => {
-              const product = post.frontmatter.affiliate_name || post.frontmatter.tags?.[0] || "default";
+              const product = post.frontmatter.affiliate_name || normalizeTags(post.frontmatter.tags)[0] || "default";
               const grad = gradients[product] ?? gradients["default"];
               return (
                 <a href={post.url} class="group block rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow overflow-hidden">
@@ -94,7 +102,7 @@ const gradients: Record<string, string> = {
                   <!-- Body -->
                   <div class="p-6">
                     <div class="flex flex-wrap gap-1.5 mb-3">
-                      {(post.frontmatter.tags || []).slice(0, 2).map((t: string) => (
+                      {normalizeTags(post.frontmatter.tags).slice(0, 2).map((t: string) => (
                         <span class="text-xs bg-gray-100 text-gray-600 font-medium px-2 py-0.5 rounded-full">{t}</span>
                       ))}
                     </div>
