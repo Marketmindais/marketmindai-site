@@ -209,6 +209,15 @@ const aiSummary = affiliate_name
           AI crawlers welcome: see https://marketmindai.com/llms.txt
         </div>
 
+        <!-- FTC Disclosure (auto-injected on affiliate pages — affiliate-rules.md Rule 4) -->
+        {hasCTA && (
+          <p class="not-prose mb-8 italic text-sm text-gray-500 border-l-2 border-indigo-200 pl-4">
+            Disclosure: This article contains affiliate links. If you purchase through these
+            links, we may earn a commission at no extra cost to you. We only recommend tools
+            we've personally vetted or researched thoroughly.
+          </p>
+        )}
+
         <!-- Top CTA box -->
         {hasCTA && (
           <div class="not-prose mb-10 rounded-2xl border border-indigo-100 bg-gradient-to-r from-indigo-50 to-violet-50 p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm">
@@ -310,6 +319,42 @@ const aiSummary = affiliate_name
 
     </div>
   </div>
+
+  <!--
+    Affiliate link compliance script — applies rel="nofollow sponsored" + target="_blank"
+    to every prose link pointing at one of our affiliate domains or /go/ short-links.
+    Required by affiliate-rules.md Rule 3 + Google's sponsored-content policy.
+    Runs at DOMContentLoaded; Googlebot executes this and indexes the modified rel.
+  -->
+  <script is:inline>
+    (function () {
+      var AFFILIATE_HOSTS = ["vapi.ai", "relevanceai.com"];
+      function shouldMark(href) {
+        if (!href) return false;
+        if (href.indexOf("/go/") !== -1) return true;
+        for (var i = 0; i < AFFILIATE_HOSTS.length; i++) {
+          if (href.indexOf(AFFILIATE_HOSTS[i]) !== -1) return true;
+        }
+        return false;
+      }
+      function tag(a) {
+        var existing = (a.getAttribute("rel") || "").split(/\s+/).filter(Boolean);
+        ["nofollow", "sponsored", "noopener"].forEach(function (r) {
+          if (existing.indexOf(r) === -1) existing.push(r);
+        });
+        a.setAttribute("rel", existing.join(" "));
+        if (!a.getAttribute("target")) a.setAttribute("target", "_blank");
+      }
+      function run() {
+        document.querySelectorAll("article a[href]").forEach(function (a) {
+          if (shouldMark(a.getAttribute("href"))) tag(a);
+        });
+      }
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", run);
+      } else { run(); }
+    })();
+  </script>
 
   <!-- Footer -->
   <footer class="bg-gray-50 border-t border-gray-100 mt-10">
