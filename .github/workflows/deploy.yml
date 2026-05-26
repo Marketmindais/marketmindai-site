@@ -23,7 +23,10 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci
+        # NOTE: use `npm install` (not `npm ci`) so we can bump a dep in
+        # package.json without having to regenerate package-lock.json
+        # locally. Lockfile is updated in-place on the runner.
+        run: npm install --no-audit --no-fund
 
       - name: Build Astro site
         run: npm run build
