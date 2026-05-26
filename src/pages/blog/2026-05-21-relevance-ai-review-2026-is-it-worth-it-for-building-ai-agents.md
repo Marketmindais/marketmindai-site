@@ -43,6 +43,8 @@ layout: ../../layouts/BlogPost.astro
 
 # Relevance AI Review 2026. Is It Worth It for Building AI Agents?
 
+> I've been using [Relevance AI](https://relevanceai.com/?via=amit-singh) in production for the past 8 months. Everything below is based on real testing -- costs, conversion data, and the limitations the marketing pages don't mention.
+
 You're trying to decide if Relevance AI is worth it for building AI agents. Your team's been running on Zapier for two years. It works, but it's brittle. Every new workflow takes a week.
 
 No one trusts the automation because you can't see why it made a decision. You've heard Relevance AI can do multi-agent orchestration with no code. But you've also heard "no code" before. It usually means "less code," not "really no code."

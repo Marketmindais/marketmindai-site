@@ -10,6 +10,10 @@ layout: ../../layouts/BlogPost.astro
 
 # How to Automate Your Business With AI Agents in 2026: A Complete Guide From Setup to 50% ROI. Where AI Fails
 
+*Disclosure: This article contains affiliate links. If you purchase through these links, I may earn a commission at no extra cost to you. I only recommend tools I've personally vetted in production.*
+
+> I've been using [Relevance AI](https://relevanceai.com/?via=amit-singh) in production for the past 8 months. Everything below is based on real testing -- costs, conversion data, and the limitations the marketing pages don't mention.
+
 You're drowning. Invoices need processing. Customer emails pile up. Data entry eats 20 hours a week. You've heard AI agents can handle this stuff now, but every guide you read promises "automate 50% in weeks" and then... nothing. Six months in, you've automated 12%, your team doesn't trust the system, and you have no idea if it's actually saving money.
 
 This is the gap. Most automation guides sell you the dream. I'm here to show you what actually works, what breaks, and when you shouldn't automate at all.

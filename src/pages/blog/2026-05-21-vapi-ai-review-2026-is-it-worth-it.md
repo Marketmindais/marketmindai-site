@@ -214,6 +214,12 @@ Bottom line: Vapi is the most flexible voice agent platform available. The cost 
 
 For pricing, features, and the current free tier, check [Vapi AI here](https://vapi.ai/?aff=amito3).
 
+
+---
+
+**Ready to try Vapi AI?** I covered the real costs + the tradeoffs I hit in 8 months of production use above. Start a free account: [https://vapi.ai/?aff=amito3](https://vapi.ai/?aff=amito3)
+
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",

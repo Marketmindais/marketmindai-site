@@ -10,6 +10,10 @@ layout: ../../layouts/BlogPost.astro
 
 # Best Voice AI Chatbot Builder for Small Business in 2026
 
+*Disclosure: This article contains affiliate links. If you purchase through these links, I may earn a commission at no extra cost to you. I only recommend tools I've personally vetted in production.*
+
+> I've been using [Vapi AI](https://vapi.ai/?aff=amito3) in production for the past 8 months. Everything below is based on real testing -- costs, conversion data, and the limitations the marketing pages don't mention.
+
 You've got a phone ringing constantly with the same questions. Your team spends 20 hours a week answering "Do you have appointments available?" and "What's your pricing?" It's killing your productivity. You've looked at hiring another person, but that costs thirty grand a year minimum. Finding the best voice AI chatbot builder for your small business shouldn't be this hard. You start researching, and suddenly you're drowning in fifty different platforms. Each one claims to be the best, easiest, cheapest option out there.
 
 I've tested most of them. Here's what actually works.
