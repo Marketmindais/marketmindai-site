@@ -1,21 +1,13 @@
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
-import sitemap from "@astrojs/sitemap";
 
+// NOTE: @astrojs/sitemap @ 3.x has a 'pages.reduce of undefined' bug at the
+// astro:build:done hook on Astro 4 + output:'static'. We bypass it entirely
+// by generating sitemap.xml as a regular static file in public/ via
+// cowork/sitemap_gen.py (called after every content publish). Cloudflare
+// then serves it as a normal /sitemap.xml at the standard URL.
 export default defineConfig({
   site: "https://marketmindai.com",
-  integrations: [
-    tailwind(),
-    sitemap({
-      // Skip non-public routes if they ever appear; index only blog + product pages.
-      filter: (page) =>
-        !page.includes("/admin") &&
-        !page.includes("/draft") &&
-        !page.includes("/_"),
-      changefreq: "weekly",
-      priority: 0.7,
-      lastmod: new Date(),
-    }),
-  ],
+  integrations: [tailwind()],
   output: "static",
 });

@@ -38,6 +38,6 @@ Allow: /
 User-agent: DuckDuckBot
 Allow: /
 
-Sitemap: https://marketmindai.com/sitemap-index.xml
+Sitemap: https://marketmindai.com/sitemap.xml
 
 # AI instructions — see https://marketmindai.com/llms.txt
