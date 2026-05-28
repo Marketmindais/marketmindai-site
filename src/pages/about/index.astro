@@ -1,0 +1,95 @@
+---
+import Base from '../../layouts/Base.astro';
+import { authors, SITE_URL } from '../../data/authors.js';
+
+const amit = authors["amit-singh"];
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": SITE_URL + "/about#amit-singh",
+      "name": amit.name,
+      "jobTitle": amit.jobTitle,
+      "description": amit.bio,
+      "url": amit.url,
+      "image": amit.image,
+      "sameAs": amit.sameAs,
+      "knowsAbout": amit.knowsAbout,
+      "worksFor": { "@id": SITE_URL + "#organization" }
+    },
+    {
+      "@type": "AboutPage",
+      "@id": SITE_URL + "/about#aboutpage",
+      "url": SITE_URL + "/about",
+      "name": "About MarketMindAI",
+      "about": { "@id": SITE_URL + "#organization" }
+    }
+  ]
+};
+---
+<Base
+  title="About MarketMindAI"
+  description="MarketMindAI is an independent AI-tools review site. We test every platform in real production workloads before recommending it. Meet the team and our editorial standards."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+
+  <section class="bg-gradient-to-b from-indigo-50 to-white border-b border-gray-100">
+    <div class="max-w-3xl mx-auto px-6 pt-16 pb-12">
+      <p class="text-xs font-semibold text-indigo-500 uppercase tracking-widest mb-3">About us</p>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-5">
+        We test AI tools so you don't waste money on the wrong ones.
+      </h1>
+      <p class="text-lg text-gray-600 leading-relaxed">
+        MarketMindAI is an independent review site for AI business tools. We run every
+        product through real production workloads — live calls, multi-week trials, and
+        actual billed usage — then publish the numbers most "best of" lists hide.
+      </p>
+    </div>
+  </section>
+
+  <div class="max-w-3xl mx-auto px-6 py-14 prose prose-lg prose-gray max-w-none
+      prose-headings:font-bold prose-h2:text-2xl prose-h2:mt-12 prose-a:text-indigo-600">
+
+    <h2>Why we exist</h2>
+    <p>
+      Most AI-tool roundups are affiliate dumps ranked by who pays the most. We got
+      tired of it. Founders and operators were buying $200/month tools based on reviews
+      written by people who never logged in. MarketMindAI fixes that: if a popular tool
+      underperforms in our tests, we say so — with the receipts attached.
+    </p>
+
+    <h2>How we stay independent</h2>
+    <ul>
+      <li><strong>We test before we recommend.</strong> No tool is listed until we've used it on a real workload.</li>
+      <li><strong>We disclose every affiliate link.</strong> Some links earn us a commission at no cost to you; that never changes our verdict.</li>
+      <li><strong>We publish losers, not just winners.</strong> A recommendation only means something if we're willing to say "skip it."</li>
+    </ul>
+    <p>
+      Read our full <a href="/methodology">testing methodology</a> to see exactly how we score.
+    </p>
+
+    <h2>Who's behind it</h2>
+  </div>
+
+  <div class="max-w-3xl mx-auto px-6 pb-20">
+    <div class="rounded-2xl border border-gray-200 bg-white p-7 flex flex-col sm:flex-row gap-6 items-start shadow-sm">
+      <div class="w-16 h-16 shrink-0 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-white text-2xl font-extrabold">
+        {amit.name.charAt(0)}
+      </div>
+      <div>
+        <h3 class="font-bold text-gray-900 text-lg">{amit.name}</h3>
+        <p class="text-sm text-indigo-600 font-medium mb-2">{amit.jobTitle}</p>
+        <p class="text-gray-600 text-sm leading-relaxed mb-3">{amit.bio}</p>
+        <div class="flex gap-4 text-sm">
+          {amit.sameAs.map((url) => (
+            <a href={url} target="_blank" rel="me noopener" class="text-indigo-600 hover:underline">
+              {url.includes("twitter") ? "X / Twitter" : url.includes("linkedin") ? "LinkedIn" : "Profile"}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</Base>

@@ -6,6 +6,7 @@ tags: ["AI Tools", "Review", "Best"]
 affiliate_url: "https://vapi.ai/?aff=amito3"
 affiliate_name: "Vapi AI"
 layout: ../../layouts/BlogPost.astro
+image: "/og/2026-05-22-best-voice-ai-chatbot-builder-for-small-business-in-2026.png"
 ---
 
 # Best Voice AI Chatbot Builder for Small Business in 2026

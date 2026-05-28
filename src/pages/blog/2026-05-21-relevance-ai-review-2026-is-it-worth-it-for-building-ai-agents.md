@@ -6,6 +6,7 @@ tags: ["AI Tools", "Review", "Relevance"]
 affiliate_url: "https://relevanceai.com/?via=amit-singh"
 affiliate_name: "Relevance AI"
 layout: ../../layouts/BlogPost.astro
+image: "/og/2026-05-21-relevance-ai-review-2026-is-it-worth-it-for-building-ai-agents.png"
 ---
 
 <!--

@@ -6,6 +6,7 @@ tags: ["AI Tools", "Review", "Vapi"]
 affiliate_url: "https://vapi.ai/?aff=amito3"
 affiliate_name: "Vapi AI"
 layout: ../../layouts/BlogPost.astro
+image: "/og/2026-05-21-vapi-ai-review-2026-is-it-worth-it.png"
 ---
 
 <!--

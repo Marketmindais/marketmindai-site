@@ -6,6 +6,7 @@ tags: ["AI Tools", "Review", "How"]
 affiliate_url: "https://relevanceai.com/?via=amit-singh"
 affiliate_name: "Relevance AI"
 layout: ../../layouts/BlogPost.astro
+image: "/og/2026-05-22-how-to-automate-your-business-with-ai-agents-in-2026-a-complete-guide-from-setup.png"
 ---
 
 # How to Automate Your Business With AI Agents in 2026: A Complete Guide From Setup to 50% ROI. Where AI Fails

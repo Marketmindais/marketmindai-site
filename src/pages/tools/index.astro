@@ -1,10 +1,30 @@
 ---
 import Base from '../../layouts/Base.astro';
+
+const siteUrl = "https://marketmindai.com";
+const toolItems = [
+  { name: "Keyword Cluster Tool", desc: "Paste keywords, get semantic clusters and topical maps instantly." },
+  { name: "Content Brief Generator", desc: "Full NLP-based briefs with headings, entities, and word count targets." },
+  { name: "Meta Tag Analyzer", desc: "Check title tags, descriptions, and canonical tags for any URL." },
+  { name: "Competitor Gap Finder", desc: "See which keywords your rivals rank for that you don't — with traffic estimates." },
+];
+const itemListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "@id": siteUrl + "/tools#itemlist",
+  "name": "MarketMindAI AI Marketing Tools",
+  "itemListElement": toolItems.map((t, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "item": { "@type": "SoftwareApplication", "name": t.name, "description": t.desc, "applicationCategory": "BusinessApplication", "operatingSystem": "Web" }
+  }))
+};
 ---
 <Base
   title="AI Marketing Tools"
   description="Free and premium AI tools for keyword research, content briefs, SEO audits, and competitor analysis."
 >
+  <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
   <div class="max-w-5xl mx-auto px-6 py-16">
     <div class="text-center mb-14">
       <h1 class="text-4xl font-extrabold mb-3">AI Marketing Tools</h1>

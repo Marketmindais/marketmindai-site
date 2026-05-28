@@ -1,10 +1,26 @@
 ---
 import Base from '../../layouts/Base.astro';
+
+const siteUrl = "https://marketmindai.com";
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "@id": siteUrl + "/pricing#product",
+  "name": "MarketMindAI",
+  "description": "AI marketing intelligence: keyword research, content briefs, and competitor gap analysis.",
+  "brand": { "@type": "Brand", "name": "MarketMindAI" },
+  "offers": [
+    { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD", "url": siteUrl + "/pricing", "availability": "https://schema.org/InStock" },
+    { "@type": "Offer", "name": "Pro", "price": "29", "priceCurrency": "USD", "url": siteUrl + "/pricing", "availability": "https://schema.org/InStock" },
+    { "@type": "Offer", "name": "Agency", "price": "99", "priceCurrency": "USD", "url": siteUrl + "/pricing", "availability": "https://schema.org/InStock" }
+  ]
+};
 ---
 <Base
   title="Pricing"
   description="MarketMindAI pricing — free forever plan and affordable Pro plans for serious marketers."
 >
+  <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
   <div class="max-w-4xl mx-auto px-6 py-16 text-center">
     <h1 class="text-4xl font-extrabold mb-3">Simple, Transparent Pricing</h1>
     <p class="text-gray-500 mb-14">Start free. Upgrade when you need more power.</p>

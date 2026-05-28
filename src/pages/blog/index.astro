@@ -56,12 +56,18 @@ const gradients: Record<string, string> = {
           return (
             <a href={post.url} class="group block mb-14">
               <div class="rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-shadow flex flex-col md:flex-row">
-                <!-- Color block -->
-                <div class={`bg-gradient-to-br ${grad} md:w-72 h-48 md:h-auto flex items-center justify-center p-8 shrink-0`}>
-                  <span class="text-white font-bold text-xl text-center leading-snug opacity-90">
-                    {post.frontmatter.affiliate_name || "AI Tools"}
-                  </span>
-                </div>
+                <!-- Thumbnail (image if present, else gradient block) -->
+                {post.frontmatter.image ? (
+                  <div class="md:w-72 h-48 md:h-auto shrink-0 overflow-hidden">
+                    <img src={post.frontmatter.image} alt={post.frontmatter.title} width="1200" height="630" loading="lazy" class="w-full h-full object-cover" />
+                  </div>
+                ) : (
+                  <div class={`bg-gradient-to-br ${grad} md:w-72 h-48 md:h-auto flex items-center justify-center p-8 shrink-0`}>
+                    <span class="text-white font-bold text-xl text-center leading-snug opacity-90">
+                      {post.frontmatter.affiliate_name || "AI Tools"}
+                    </span>
+                  </div>
+                )}
                 <!-- Content -->
                 <div class="p-8 flex flex-col justify-between">
                   <div>
@@ -93,12 +99,18 @@ const gradients: Record<string, string> = {
               const grad = gradients[product] ?? gradients["default"];
               return (
                 <a href={post.url} class="group block rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow overflow-hidden">
-                  <!-- Color header -->
-                  <div class={`bg-gradient-to-r ${grad} h-32 flex items-center justify-center px-6`}>
-                    <span class="text-white font-bold text-base text-center leading-snug opacity-90">
-                      {post.frontmatter.affiliate_name || "AI Tools"}
-                    </span>
-                  </div>
+                  <!-- Thumbnail (image if present, else gradient header) -->
+                  {post.frontmatter.image ? (
+                    <div class="h-40 overflow-hidden">
+                      <img src={post.frontmatter.image} alt={post.frontmatter.title} width="1200" height="630" loading="lazy" class="w-full h-full object-cover" />
+                    </div>
+                  ) : (
+                    <div class={`bg-gradient-to-r ${grad} h-32 flex items-center justify-center px-6`}>
+                      <span class="text-white font-bold text-base text-center leading-snug opacity-90">
+                        {post.frontmatter.affiliate_name || "AI Tools"}
+                      </span>
+                    </div>
+                  )}
                   <!-- Body -->
                   <div class="p-6">
                     <div class="flex flex-wrap gap-1.5 mb-3">

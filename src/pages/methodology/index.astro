@@ -1,0 +1,67 @@
+---
+import Base from '../../layouts/Base.astro';
+import { SITE_URL } from '../../data/authors.js';
+
+const steps = [
+  { name: "Real-workload setup", text: "We deploy the tool on an actual task — a live voice agent, a working funnel, a populated CRM — not a sandbox demo." },
+  { name: "Multi-week usage", text: "We use it for a minimum trial window (typically 4–8 weeks) so reliability, support quality, and hidden limits surface." },
+  { name: "Measured performance", text: "We record hard numbers: latency, success rate, error frequency, and the actual monthly bill at realistic volume." },
+  { name: "Head-to-head comparison", text: "Each tool is scored against the leading alternatives in its category on the same workload." },
+  { name: "Verdict + disclosure", text: "We publish a rating, the conditions it's best for, and where it loses — with every affiliate relationship disclosed." },
+];
+
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "@id": SITE_URL + "/methodology#howto",
+  "name": "How MarketMindAI tests AI tools",
+  "description": "Our five-step process for evaluating and rating AI business tools.",
+  "step": steps.map((s, i) => ({
+    "@type": "HowToStep",
+    "position": i + 1,
+    "name": s.name,
+    "text": s.text
+  }))
+};
+---
+<Base
+  title="Our Testing Methodology"
+  description="How MarketMindAI evaluates AI tools: real production workloads, multi-week trials, measured latency and cost, head-to-head comparison, and full affiliate disclosure."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
+
+  <section class="bg-gradient-to-b from-indigo-50 to-white border-b border-gray-100">
+    <div class="max-w-3xl mx-auto px-6 pt-16 pb-12">
+      <p class="text-xs font-semibold text-indigo-500 uppercase tracking-widest mb-3">Editorial standards</p>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-5">How we test</h1>
+      <p class="text-lg text-gray-600 leading-relaxed">
+        Every rating on MarketMindAI comes from hands-on use, not vendor talking points.
+        Here's the exact process behind each review.
+      </p>
+    </div>
+  </section>
+
+  <div class="max-w-3xl mx-auto px-6 py-14">
+    <ol class="space-y-6">
+      {steps.map((s, i) => (
+        <li class="flex gap-5">
+          <div class="w-10 h-10 shrink-0 rounded-full bg-indigo-600 text-white font-bold flex items-center justify-center">{i + 1}</div>
+          <div>
+            <h2 class="font-bold text-gray-900 text-lg mb-1">{s.name}</h2>
+            <p class="text-gray-600 leading-relaxed">{s.text}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+
+    <div class="mt-12 rounded-2xl border border-indigo-100 bg-indigo-50 p-6">
+      <h2 class="font-bold text-gray-900 mb-2">A note on affiliate links</h2>
+      <p class="text-sm text-gray-600 leading-relaxed">
+        Some links on MarketMindAI are affiliate links — if you buy through them we may
+        earn a commission at no extra cost to you. This never affects our scores or which
+        tools we recommend. We publish unfavourable verdicts on tools we have affiliate
+        relationships with whenever the testing warrants it.
+      </p>
+    </div>
+  </div>
+</Base>

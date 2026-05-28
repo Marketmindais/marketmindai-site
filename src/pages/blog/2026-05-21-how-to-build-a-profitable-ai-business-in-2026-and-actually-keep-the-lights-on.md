@@ -6,6 +6,7 @@ tags: ["AI Tools", "Review", "How"]
 affiliate_url: "https://relevanceai.com/?via=amit-singh"
 affiliate_name: "Relevance AI"
 layout: ../../layouts/BlogPost.astro
+image: "/og/2026-05-21-how-to-build-a-profitable-ai-business-in-2026-and-actually-keep-the-lights-on.png"
 ---
 
 # How to Build a Profitable AI Business in 2026 (And Actually Keep the Lights On)
