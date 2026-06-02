@@ -6,7 +6,7 @@ tags: ["AI Tools", "Review", "Voice AI"]
 affiliate_url: "https://vapi.ai/?aff=amito3"
 affiliate_name: Vapi AI
 layout: ../../layouts/BlogPost.astro
-image: "/og/2026-05-19-vapi-ai-review-2026-best-platform-for-building-voice-agents-fast.png"
+image: "/og/vapi-ai-review-2026-best-platform-for-building-voice-agents-fast.png"
 ---
 
 <!--
