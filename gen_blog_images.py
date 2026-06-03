@@ -1,9 +1,9 @@
-"""Regenerate clean 1200x630 hero/OG images for every blog post.
+"""Regenerate 1200x630 TEXT-FREE contextual hero/OG images for every blog post.
 
-Uses cowork.og_card (Pillow-only, no AI backends -> no gibberish text).
-Always overwrites existing images; idempotent and safe to re-run after any
-title change. Also updates each post's `image:` frontmatter to match the
-canonical filename.
+Uses cowork.context_image -> a topical, wordless image per post (library-first,
+AI on miss, abstract gradient last resort). The title renders in the page, so
+images carry no text. Idempotent; safe to re-run after a library upgrade to
+pull in richer AI imagery. Also keeps each post's `image:` frontmatter in sync.
 """
 import re
 import sys
@@ -13,7 +13,7 @@ SITE = Path(__file__).parent
 ROOT = SITE.parent.parent  # repo root
 sys.path.insert(0, str(ROOT))
 
-from cowork.og_card import render_hero_card  # noqa: E402
+from cowork.context_image import contextual_image  # noqa: E402
 
 BLOG = SITE / "src" / "pages" / "blog"
 OUT = SITE / "public" / "og"
@@ -57,10 +57,11 @@ def main() -> None:
         if not title:
             print("skip (no title):", p.name)
             continue
+        product = _field(fm, "affiliate_name")
 
         slug = _slug_for_post(p, title)
         out_path = OUT / f"{slug}.png"
-        render_hero_card(title, out_path)
+        contextual_image(title, out_path, width=1200, height=630, product=product)
         print(f"{p.name[:60]:60s} -> og/{slug}.png")
 
         # Ensure frontmatter image: is canonical.
