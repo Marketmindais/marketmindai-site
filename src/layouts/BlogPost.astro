@@ -69,26 +69,16 @@ const articleSchema = {
       "mainEntityOfPage": { "@type": "WebPage", "@id": canonical },
       "keywords": tagsArray.join(", "),
       ...(affiliate_name && {
+        // Just a `mentions` link to the tool. The self-serving Review/Rating
+        // schema was removed: Google rejected it ("nested object can't contain
+        // itemReviewed" directional conflict) AND a publisher rating products
+        // it earns affiliate commission on violates Google's review-snippet
+        // policy. The product is still named + linked, just not self-rated.
         "mentions": {
           "@type": "SoftwareApplication",
           "name": affiliate_name,
           "url": affiliate_url,
           "applicationCategory": "BusinessApplication"
-        },
-        "review": {
-          "@type": "Review",
-          "reviewRating": {
-            "@type": "Rating",
-            "ratingValue": ratingValue,
-            "bestRating": "5",
-            "worstRating": "1"
-          },
-          "author": { "@type": "Organization", "name": "MarketMindAI" },
-          "itemReviewed": {
-            "@type": "SoftwareApplication",
-            "name": affiliate_name,
-            "url": affiliate_url
-          }
         }
       })
     },
