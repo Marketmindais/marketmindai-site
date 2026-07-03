@@ -17,10 +17,14 @@ const {
   author = "",
   modified = "",
   image = "",
+  canonical: canonicalOverride = "",
 } = Astro.props.frontmatter || Astro.props;
 
 const siteUrl = "https://marketmindai.com";
-const canonical = siteUrl + Astro.url.pathname;
+// Frontmatter `canonical:` consolidates duplicate articles targeting the same
+// keyword (we shipped 3 EngageBay + 3 Vapi reviews) onto one ranking URL
+// instead of splitting signals across near-identical pages.
+const canonical = canonicalOverride || siteUrl + Astro.url.pathname;
 const authorInfo = getAuthor(author);
 const ogImageUrl = image ? (image.startsWith("http") ? image : siteUrl + image) : siteUrl + "/og-fallback.png";
 const slug = Astro.url.pathname.replace(/\/$/, "").split("/").pop() || "";

@@ -1,6 +1,6 @@
 ---
 title: Is AI Automation Consulting Worth It for Mid-Size Business? Unlock Your Hidden Profits and Future-Pr
-description: Complete guide to is AI automation consulting worth it for mid size business. Expert tips and honest reviews.
+description: "Is AI automation consulting worth it for a mid-size business? Real costs, typical ROI timelines, and when to build in-house instead."
 date: 2026-06-06
 modified: 2026-06-06
 author: amit-singh

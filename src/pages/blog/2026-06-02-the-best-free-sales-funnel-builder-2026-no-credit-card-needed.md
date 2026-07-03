@@ -1,6 +1,6 @@
 ---
 title: The Best Free Sales Funnel Builder 2026 (No Credit Card Needed!)
-description: Complete guide to best free sales funnel builder 2026 no credit card. Expert tips and honest reviews.
+description: "The best free sales funnel builder in 2026, no credit card needed. Real limits of each free plan and the one that stays free as you grow."
 date: 2026-06-02
 modified: 2026-06-02
 author: amit-singh
