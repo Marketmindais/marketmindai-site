@@ -1,13 +1,13 @@
 ---
 title: "Vapi AI Tutorial: Build Your First AI Phone Agent in 10 Minutes & See What Happens"
-description: "Build your first AI phone agent in 10 minutes with this Vapi AI tutorial. Learn how to set up, prompt, and test your AI assistant quickly."
+description: Build your first AI phone agent in 10 minutes with this Vapi AI tutorial. Learn how to set up, prompt, and test your AI assistant quickly.
 date: 2026-06-03
 modified: 2026-06-03
-author: "amit-singh"
-tags: ["AI Tools", "Review", "Vapi"]
-image: "/og/vapi-ai-tutorial-build-your-first-ai-phone-agent-in-10-minutes-see-what-happens.png"
+author: amit-singh
+tags: "['AI Tools', 'Review', 'Vapi']"
+image: /og/vapi-ai-tutorial-build-your-first-ai-phone-agent-in-10-minutes-see-what-happens.png
 affiliate_url: "https://vapi.ai/?aff=amito3"
-affiliate_name: "Vapi AI"
+affiliate_name: Vapi AI
 layout: ../../layouts/BlogPost.astro
 ---
 
@@ -127,3 +127,8 @@ So, Vapi AI sits in a sweet spot. It's way faster and easier than building from 
 Ready to give it a shot? Go build your first AI phone agent. It’s easier than you think. Try [Vapi AI free](https://vapi.ai/?aff=amito3) to get started.
 
 Meta: Build your first AI phone agent in 10 minutes with this Vapi AI tutorial. Learn how to set up, prompt, and test your AI assistant quickly.
+
+## Frequently Asked Questions
+
+**What is Vapi AI?**
+Vapi AI is a platform designed to help developers
